@@ -37,3 +37,5 @@ HALAMAN DOWNLOAD TAMBAHAN (SCRAPR)
   Bilibili, RedNote, Bandcamp, Pixiv, TeraBox, Link Resolver (MediaFire/Sfile/Safelinku/dll).
   TikTok/IG/YT/FB/Spotify: API lama tetap dipakai dulu, scrapr jadi cadangan terakhir.
   Urutan <script> di index.html: setting.js -> scrapr.js -> theme.js -> myfunction.js (jangan diubah).
+
+kanyut 
