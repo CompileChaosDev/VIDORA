@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buat index-single</title>
+
+<button id="go" style="font-size:18px;padding:14px 20px">Buat index-single.html</button>
+<p id="msg"></p>
+
+<script>
+const get = async (path) => (await fetch(path)).text();
+
+document.getElementById('go').onclick = async () => {
+  try {
+    let html = await get('index.html');
+
+    for (const m of html.matchAll(/<link rel="stylesheet" href="(css\/[^"]+)">/g)) {
+      const css = await get(m[1]);
+      html = html.replace(m[0], () => '<style>\n' + css + '\n</style>');
+    }
+
+    for (const m of html.matchAll(/<script src="(js\/[^"]+)"><\/script>/g)) {
+      const js = await get(m[1]);
+      html = html.replace(m[0], () => '<scr' + 'ipt>\n' + js + '\n</scr' + 'ipt>');
+    }
+
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+    a.download = 'index-single.html';
+    a.click();
+    msg.textContent = 'Selesai! Cek folder Download.';
+  } catch (e) {
+    msg.textContent = 'Gagal: ' + e.message;
+  }
+};
+</script>

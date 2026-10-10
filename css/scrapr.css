@@ -1,0 +1,4 @@
+/* Halaman download tambahan (js/scrapr.js): daftar tombol file bisa banyak */
+.result[data-render="links"] .stack { display: grid; gap: 10px; max-height: 52vh; overflow-y: auto; }
+.result[data-render="links"] .result-info { margin-bottom: 12px; }
+.result[data-render="links"] .result-title { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }

@@ -1,0 +1,126 @@
+/* ===== INTRO / WELCOME (layar penuh, ukuran HP) =====
+   Daftar isi: 1 Wadah  2 Video  3 Efek  4 Judul  5 Skip  6 Progress  7 Keluar */
+
+/* 1. Wadah */
+#intro {
+  position: fixed; inset: 0; z-index: 9999;
+  height: 100vh; height: 100dvh;
+  background: #05070f; color: #fff; overflow: hidden;
+  font-family: 'Chakra Petch', 'Space Grotesk', system-ui, sans-serif;
+  display: block;
+  transition: opacity .7s ease, transform .7s ease, filter .7s ease;
+}
+body.intro-lock { overflow: hidden; }
+
+/* 2. Video (cover = selalu memenuhi layar HP) */
+#intro video, #intro .intro-poster {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
+#intro .intro-poster { background: center / cover no-repeat; }
+#intro video { opacity: 0; transition: opacity .8s ease; }
+#intro.playing video { opacity: 1; }
+
+/* 3. Efek: hujan, garis scan, bayangan */
+#introRain { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .75; }
+.intro-scan {
+  position: absolute; inset: 0; pointer-events: none; mix-blend-mode: overlay; opacity: .5;
+  background: repeating-linear-gradient(0deg, rgba(255,255,255,.07) 0 1px, transparent 1px 4px);
+}
+.intro-shade {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(5,7,15,.55) 0%, transparent 22%, transparent 48%, rgba(5,10,28,.88) 82%, #050a1c 100%),
+    radial-gradient(120% 70% at 0% 60%, rgba(40,110,220,.35), transparent 65%);
+}
+
+/* 4. Judul */
+.intro-center {
+  position: absolute; left: 0; right: 0; bottom: calc(15% + env(safe-area-inset-bottom, 0px));
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.intro-line {
+  display: block; width: 0; height: 3px; background: #3b82f6;
+  box-shadow: 0 0 14px #3b82f6; margin-bottom: 22px;
+}
+#intro .intro-line { animation: introLine .9s .3s ease forwards; }
+#introTitle {
+  margin: 0; font-weight: 600; font-size: 46px; line-height: 1;
+  letter-spacing: .5em; margin-right: -.5em; padding-left: .5em;
+  background: linear-gradient(180deg, #fff 20%, #7cc0ff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 16px rgba(80,160,255,.55));
+}
+#introTitle span { display: inline-block; opacity: 0; transform: translateY(14px); filter: blur(6px); }
+#intro #introTitle span { animation: introLetter .7s ease forwards; }
+#introSub {
+  margin: 20px 0 0; font-size: 11px; font-weight: 500;
+  letter-spacing: .55em; margin-right: -.55em; color: rgba(255,255,255,.5);
+  opacity: 0;
+}
+#intro #introSub { animation: introFade 1s 1.2s ease forwards; }
+
+/* 5. Tombol skip */
+#introSkip {
+  position: absolute; top: calc(14px + env(safe-area-inset-top, 0px)); right: 16px;
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 20px; border-radius: 999px; cursor: pointer;
+  font: 600 12px 'Chakra Petch', monospace; letter-spacing: .25em;
+  color: #cfe3ff; background: rgba(60,100,190,.4);
+  border: 1px solid rgba(120,170,255,.45);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  opacity: 0; animation: introFade .6s .8s ease forwards;
+}
+#introSkip svg { color: #4aa3ff; }
+#introSkip:active { transform: scale(.96); }
+
+#introSound {
+  position: absolute; top: calc(14px + env(safe-area-inset-top, 0px)); left: 16px;
+  display: none; align-items: center; gap: 8px; padding: 12px 14px; border-radius: 999px; cursor: pointer;
+  font: 600 10px 'Chakra Petch', monospace; letter-spacing: .18em; color: #cfe3ff;
+  background: rgba(60,100,190,.4); border: 1px solid rgba(120,170,255,.45);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+#introSound.show { display: flex; }
+#introSound.show:not(.on-sound) { animation: introPulse 1.6s ease-in-out infinite; }
+#introSound.on-sound { animation: none; }
+#introSound.on-sound span { display: none; }
+@keyframes introPulse { 50% { box-shadow: 0 0 0 6px rgba(80,160,255,.18); } }
+
+#introGate {
+  position: absolute; inset: 0; z-index: 5; display: none; width: 100%;
+  align-items: flex-end; justify-content: center; padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(180deg, rgba(5,7,15,.35), rgba(5,7,15,.8)); border: 0; cursor: pointer;
+  font: 600 12px 'Chakra Petch', monospace; letter-spacing: .4em; color: #cfe3ff;
+}
+#introGate span { animation: introBlink 1.4s ease-in-out infinite; }
+#intro.gated #introGate { display: flex; }
+#intro.gated .intro-center *, #intro.gated #introSkip, #intro.gated .intro-line { animation-play-state: paused; }
+@keyframes introBlink { 50% { opacity: .35; } }
+
+/* 6. Progress bar */
+.intro-bar {
+  position: absolute; left: 20px; right: 20px;
+  bottom: calc(26px + env(safe-area-inset-bottom, 0px));
+  height: 2px; background: rgba(255,255,255,.14);
+}
+#introBar {
+  display: block; height: 100%; width: 0%;
+  background: #3b82f6; box-shadow: 0 0 10px #3b82f6;
+}
+
+/* 7. Keluar */
+#intro.out { opacity: 0; transform: scale(1.06); filter: blur(8px); pointer-events: none; }
+
+@keyframes introLine   { to { width: 56px; } }
+@keyframes introLetter { to { opacity: 1; transform: none; filter: none; } }
+@keyframes introFade   { to { opacity: 1; } }
+
+@media (min-width: 600px) {
+  /* di desktop: tetap bentuk HP di tengah layar */
+  #intro { left: 50%; right: auto; width: min(100vw, 430px); transform: translateX(-50%); box-shadow: 0 0 0 100vmax #000; }
+  #intro.out { transform: translateX(-50%) scale(1.06); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #intro .intro-line, #intro #introTitle span, #intro #introSub { animation-duration: .01s; }
+}

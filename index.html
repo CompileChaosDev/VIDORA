@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080a16">
+  <title>VIDORA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Chakra+Petch:wght@500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/room.css">
+  <link rel="stylesheet" href="css/scrapr.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/ringan.css">
+  <link rel="stylesheet" href="css/intro.css">
+</head>
+<body class="intro-lock">
+
+  <div id="intro" aria-hidden="true">
+    <video id="introVideo" playsinline webkit-playsinline preload="auto"></video>
+    <div class="intro-poster"></div>
+    <canvas id="introRain"></canvas>
+    <div class="intro-scan"></div>
+    <div class="intro-shade"></div>
+    <button id="introSkip" type="button"><span id="introSkipText">SKIP INTRO</span><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M5 5l9 7-9 7V5zm11 0h3v14h-3V5z"/></svg></button>
+    <button id="introSound" type="button" aria-label="Suara"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path id="introWave" d="M16 8.5a5 5 0 010 7M18.5 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span id="introSoundText">KETUK UNTUK SUARA</span></button>
+    <button id="introGate" type="button"><span id="introGateText">KETUK UNTUK MASUK</span></button>
+    <div class="intro-center">
+      <i class="intro-line"></i>
+      <h1 id="introTitle">VIDORA</h1>
+      <p id="introSub">SISTEM TERINTEGRASI</p>
+    </div>
+    <div class="intro-bar"><span id="introBar"></span></div>
+  </div>
+
+  <div id="pageBg"><div class="bg-img"></div><div class="bg-tint"></div><div class="bg-vignette"></div></div>
+  <canvas id="pageFx"></canvas>
+
+  <div class="wrap">
+
+  <section class="page home active" id="page-home">
+
+    <div class="topbar">
+      <div class="brand">
+        <span class="brand-logo" style="background-image:url('https://files.catbox.moe/i7nyco.jpg')"></span>VIDORA
+      </div>
+      <div class="top-actions">
+        <div class="pill"><span class="dot-live"></span>Online</div>
+        <div class="icon-btn" data-action="theme" role="button" aria-label="Ganti tema"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1.4 0 2-1 1.6-2.1-.4-1 .3-2.1 1.4-2.1H17a4 4 0 004-4c0-5-4-9.8-9-9.8z"/><circle cx="7.5" cy="11" r=".9"/><circle cx="10.5" cy="7.2" r=".9"/><circle cx="15" cy="7.6" r=".9"/></svg></div>
+        <div class="menu-wrap">
+          <div class="icon-btn" id="menuBtn" role="button" aria-label="Menu">⋮</div>
+          <div class="dropdown" id="dropdown">
+            <a data-nav="tiktok">TikTok</a>
+            <a data-nav="ig">Instagram</a>
+            <a data-nav="yt">YouTube</a>
+            <a data-nav="fb">Facebook</a>
+            <a data-nav="spotify">Spotify</a>
+            <a data-nav="ff">Fake Lobby FF</a>
+            <a data-nav="codesnap">CodeSnap</a>
+            <a data-nav="qr">QR Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-photo">
+      <img src="https://files.catbox.moe/namlrq.jpg" alt="Welcome">
+      <span class="home-badge">NO WATERMARK</span>
+    </div>
+
+    <div class="about glass">
+      <div class="section-label">TENTANG VIDORA</div>
+      <p>VIDORA adalah downloader video yang menggabungkan TikTok, Instagram, YouTube, Facebook, Spotify, Twitter/X, Pinterest, dan banyak platform lain dalam satu platform yang ringan dan praktis. Nikmati proses download cepat dengan kualitas media tetap terjaga, tanpa watermark.</p>
+    </div>
+
+    <button class="btn-cta" data-link="channel"><span class="shine"></span><span class="label">Gabung Channel WhatsApp</span><span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></span></button>
+
+    <div class="section-label">FITUR TERSEDIA</div>
+    <div class="feature glass" data-nav="tiktok">
+      <div class="feature-text">
+        <div class="feature-name">Download TikTok</div>
+        <div class="feature-desc">MP4 tanpa watermark · MP3</div>
+      </div>
+    </div>
+    <div class="feature glass" data-nav="ig">
+      <div class="feature-text">
+        <div class="feature-name">Download Instagram</div>
+        <div class="feature-desc">Reels, Post &amp; Story</div>
+      </div>
+    </div>
+    <div class="feature glass" data-nav="yt">
+      <div class="feature-text">
+        <div class="feature-name">Download YouTube</div>
+        <div class="feature-desc">Video &amp; audio MP3</div>
+      </div>
+    </div>
+    <div class="feature glass" data-nav="fb">
+      <div class="feature-text">
+        <div class="feature-name">Download Facebook</div>
+        <div class="feature-desc">Video HD &amp; audio</div>
+      </div>
+    </div>
+    <div class="feature glass" data-nav="spotify">
+      <div class="feature-text">
+        <div class="feature-name">Download Spotify</div>
+        <div class="feature-desc">Lagu jadi MP3</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:22px">MAKER</div>
+    <div class="feature glass" data-nav="ff">
+      <div class="feature-text">
+        <div class="feature-name">Fake Lobby FF</div>
+        <div class="feature-desc">Buat gambar lobby dari nickname</div>
+      </div>
+    </div>
+    <div class="feature glass" data-nav="codesnap">
+      <div class="feature-text">
+        <div class="feature-name">CodeSnap</div>
+        <div class="feature-desc">Ubah kode jadi gambar</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:22px">TOOLS</div>
+    <div class="feature glass" data-nav="qr">
+      <div class="feature-text">
+        <div class="feature-name">QR Code / QRIS</div>
+        <div class="feature-desc">Ubah teks jadi QR, download PNG</div>
+      </div>
+    </div>
+
+    <div class="home-footer">
+      <span>v1.0.0</span>
+      <span>STUDIO CLAUDE</span>
+      <span class="status"><span class="dot-live"></span>Online</span>
+    </div>
+  </section>
+
+  <section class="page" id="page-tiktok">
+
+    <div class="topbar">
+      <div class="icon-btn" data-nav="home" role="button" aria-label="Kembali"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+      <div class="topbar-title">Download TikTok</div>
+      <div class="icon-btn push-right" data-action="theme" role="button" aria-label="Ganti tema"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1.4 0 2-1 1.6-2.1-.4-1 .3-2.1 1.4-2.1H17a4 4 0 004-4c0-5-4-9.8-9-9.8z"/><circle cx="7.5" cy="11" r=".9"/><circle cx="10.5" cy="7.2" r=".9"/><circle cx="15" cy="7.6" r=".9"/></svg></div>
+    </div>
+
+    <div class="room-card glass">
+      <span class="room-tag">TIKTOK</span>
+      <h2 class="room-title">Download video<br>TikTok</h2>
+      <p class="room-desc">Tanpa watermark, langsung simpan sebagai MP4 atau MP3.</p>
+
+      <input class="field" type="text" data-input="tiktok" placeholder="Tempel link TikTok di sini">
+      <button class="btn-cta" data-download="tiktok"><span class="shine"></span><span class="label">Download</span><span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span></button>
+
+      <div class="loading" data-loading="tiktok"><span class="spinner"></span><span>Sedang memproses…</span></div>
+      <div class="error" data-error="tiktok"></div>
+
+      <div class="result" data-result="tiktok">
+
+        <div class="mode-video">
+          <div class="result-info">
+            <div class="thumb"></div>
+            <div class="result-text">
+              <div class="result-title"></div>
+              <div class="result-sub"></div>
+            </div>
+          </div>
+          <div class="dl-row">
+            <button class="dl-btn" data-file="video"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Video</b><small>MP4</small></span></button>
+            <button class="dl-btn alt" data-file="audio"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Audio</b><small>MP3</small></span></button>
+          </div>
+        </div>
+
+        <div class="mode-photo">
+          <div class="photo-head">
+            <div class="photo-title"></div>
+            <div class="photo-sub"></div>
+          </div>
+          <div class="slider">
+            <img class="slide-img" alt="Photo">
+            <div class="slide-count"></div>
+            <button class="slide-nav prev" aria-label="Sebelumnya">‹</button>
+            <button class="slide-nav next" aria-label="Berikutnya">›</button>
+          </div>
+          <div class="dots"></div>
+          <div class="stack">
+            <button class="dl-btn" data-file="slide"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Download photo</b><small>JPG</small></span></button>
+            <button class="dl-btn" data-file="zip"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Download semua photo</b><small>ZIP</small></span></button>
+            <button class="dl-btn alt" data-file="photo-audio"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Unduh MP3</b><small>AUDIO</small></span></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="page-ig">
+
+    <div class="topbar">
+      <div class="icon-btn" data-nav="home" role="button" aria-label="Kembali"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+      <div class="topbar-title">Download Instagram</div>
+      <div class="icon-btn push-right" data-action="theme" role="button" aria-label="Ganti tema"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1.4 0 2-1 1.6-2.1-.4-1 .3-2.1 1.4-2.1H17a4 4 0 004-4c0-5-4-9.8-9-9.8z"/><circle cx="7.5" cy="11" r=".9"/><circle cx="10.5" cy="7.2" r=".9"/><circle cx="15" cy="7.6" r=".9"/></svg></div>
+    </div>
+
+    <div class="room-card glass">
+      <span class="room-tag">INSTAGRAM</span>
+      <h2 class="room-title">Download Reels<br>&amp; Story IG</h2>
+      <p class="room-desc">Reels, postingan, dan Story — kualitas asli tanpa kompresi.</p>
+
+      <input class="field" type="text" data-input="ig" placeholder="Tempel link Instagram di sini">
+      <button class="btn-cta" data-download="ig"><span class="shine"></span><span class="label">Download</span><span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span></button>
+
+      <div class="loading" data-loading="ig"><span class="spinner"></span><span>Sedang memproses…</span></div>
+      <div class="error" data-error="ig"></div>
+
+      <div class="result" data-result="ig">
+          <div class="result-info">
+            <div class="thumb"></div>
+            <div class="result-text">
+              <div class="result-title"></div>
+              <div class="result-sub"></div>
+            </div>
+          </div>
+          <div class="dl-row">
+            <button class="dl-btn" data-file="video"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Video</b><small>MP4</small></span></button>
+            <button class="dl-btn alt" data-file="audio"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Audio</b><small>MP3</small></span></button>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="page-fb">
+
+    <div class="topbar">
+      <div class="icon-btn" data-nav="home" role="button" aria-label="Kembali"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+      <div class="topbar-title">Download Facebook</div>
+      <div class="icon-btn push-right" data-action="theme" role="button" aria-label="Ganti tema"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1.4 0 2-1 1.6-2.1-.4-1 .3-2.1 1.4-2.1H17a4 4 0 004-4c0-5-4-9.8-9-9.8z"/><circle cx="7.5" cy="11" r=".9"/><circle cx="10.5" cy="7.2" r=".9"/><circle cx="15" cy="7.6" r=".9"/></svg></div>
+    </div>
+
+    <div class="room-card glass">
+      <span class="room-tag">FACEBOOK</span>
+      <h2 class="room-title">Download video<br>Facebook</h2>
+      <p class="room-desc">Video Facebook &amp; Reels kualitas HD, bisa juga simpan audionya.</p>
+
+      <input class="field" type="text" data-input="fb" placeholder="Tempel link Facebook di sini">
+      <button class="btn-cta" data-download="fb"><span class="shine"></span><span class="label">Download</span><span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span></button>
+
+      <div class="loading" data-loading="fb"><span class="spinner"></span><span>Sedang memproses…</span></div>
+      <div class="error" data-error="fb"></div>
+
+      <div class="result" data-result="fb">
+          <div class="result-info">
+            <div class="thumb"></div>
+            <div class="result-text">
+              <div class="result-title"></div>
+              <div class="result-sub"></div>
+            </div>
+          </div>
+          <div class="dl-row">
+            <button class="dl-btn" data-file="video"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Video</b><small>MP4</small></span></button>
+            <button class="dl-btn alt" data-file="audio"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Audio</b><small>MP3</small></span></button>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="page-yt">
+
+    <div class="topbar">
+      <div class="icon-btn" data-nav="home" role="button" aria-label="Kembali"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+      <div class="topbar-title">Download YouTube</div>
+      <div class="icon-btn push-right" data-action="theme" role="button" aria-label="Ganti tema"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1.4 0 2-1 1.6-2.1-.4-1 .3-2.1 1.4-2.1H17a4 4 0 004-4c0-5-4-9.8-9-9.8z"/><circle cx="7.5" cy="11" r=".9"/><circle cx="10.5" cy="7.2" r=".9"/><circle cx="15" cy="7.6" r=".9"/></svg></div>
+    </div>
+
+    <div class="room-card glass">
+      <span class="room-tag">YOUTUBE</span>
+      <h2 class="room-title">Download video<br>YouTube</h2>
+      <p class="room-desc">Simpan sebagai video atau audio MP3.</p>
+
+      <input class="field" type="text" data-input="yt" placeholder="Tempel link YouTube di sini">
+      <button class="btn-cta" data-download="yt"><span class="shine"></span><span class="label">Download</span><span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span></button>
+
+      <div class="loading" data-loading="yt"><span class="spinner"></span><span>Sedang memproses…</span></div>
+      <div class="error" data-error="yt"></div>
+
+      <div class="result" data-result="yt">
+          <div class="result-info">
+            <div class="thumb"></div>
+            <div class="result-text">
+              <div class="result-title"></div>
+              <div class="result-sub"></div>
+            </div>
+          </div>
+          <div class="dl-row">
+            <button class="dl-btn" data-file="video"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Video</b><small>MP4</small></span></button>
+            <button class="dl-btn alt" data-file="audio"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Audio</b><small>MP3</small></span></button>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="page-spotify">
+
+    <div class="topbar">
+      <div class="icon-btn" data-nav="home" role="button" aria-label="Kembali"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+      <div class="topbar-title">Download Spotify</div>
+      <div class="icon-btn push-right" data-action="theme" role="button" aria-label="Ganti tema"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1.4 0 2-1 1.6-2.1-.4-1 .3-2.1 1.4-2.1H17a4 4 0 004-4c0-5-4-9.8-9-9.8z"/><circle cx="7.5" cy="11" r=".9"/><circle cx="10.5" cy="7.2" r=".9"/><circle cx="15" cy="7.6" r=".9"/></svg></div>
+    </div>
+
+    <div class="room-card glass">
+      <span class="room-tag">SPOTIFY</span>
+      <h2 class="room-title">Download lagu<br>Spotify</h2>
+      <p class="room-desc">Tempel link lagu Spotify, simpan sebagai MP3.</p>
+
+      <input class="field" type="text" data-input="spotify" placeholder="Tempel link lagu Spotify di sini">
+      <button class="btn-cta" data-download="spotify"><span class="shine"></span><span class="label">Download</span><span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span></button>
+
+      <div class="loading" data-loading="spotify"><span class="spinner"></span><span>Sedang memproses…</span></div>
+      <div class="error" data-error="spotify"></div>
+
+      <div class="result" data-result="spotify">
+          <div class="result-info">
+            <div class="thumb"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></div>
+            <div class="result-text">
+              <div class="result-title"></div>
+              <div class="result-sub"></div>
+            </div>
+          </div>
+          <div class="dl-row">
+            <button class="dl-btn" data-file="audio"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Download</b><small>MP3</small></span></button>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="page-ff">
+
+    <div class="topbar">
+      <div class="icon-btn" data-nav="home" role="button" aria-label="Kembali"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+      <div class="topbar-title">Fake Lobby FF</div>
+      <div class="icon-btn push-right" data-action="theme" role="button" aria-label="Ganti tema"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1.4 0 2-1 1.6-2.1-.4-1 .3-2.1 1.4-2.1H17a4 4 0 004-4c0-5-4-9.8-9-9.8z"/><circle cx="7.5" cy="11" r=".9"/><circle cx="10.5" cy="7.2" r=".9"/><circle cx="15" cy="7.6" r=".9"/></svg></div>
+    </div>
+
+    <div class="room-card glass">
+      <span class="room-tag">FAKE LOBBY FF</span>
+      <h2 class="room-title">Buat gambar<br>Fake Lobby FF</h2>
+      <p class="room-desc">Masukkan nickname, gambar langsung jadi.</p>
+
+      <input class="field" type="text" data-input="ff" placeholder="Ketik nickname">
+      <button class="btn-cta" data-make="ff"><span class="shine"></span><span class="label">Buat Gambar</span><span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></svg></span></button>
+
+      <div class="loading" data-loading="ff"><span class="spinner"></span><span>Sedang memproses…</span></div>
+      <div class="error" data-error="ff"></div>
+
+      <div class="result" data-result="ff">
+          <img class="preview" alt="Hasil">
+          <div class="dl-row">
+            <button class="dl-btn" data-file="image"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Download</b><small>PNG · GAMBAR</small></span></button>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="page-codesnap">
+
+    <div class="topbar">
+      <div class="icon-btn" data-nav="home" role="button" aria-label="Kembali"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+      <div class="topbar-title">CodeSnap</div>
+      <div class="icon-btn push-right" data-action="theme" role="button" aria-label="Ganti tema"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1.4 0 2-1 1.6-2.1-.4-1 .3-2.1 1.4-2.1H17a4 4 0 004-4c0-5-4-9.8-9-9.8z"/><circle cx="7.5" cy="11" r=".9"/><circle cx="10.5" cy="7.2" r=".9"/><circle cx="15" cy="7.6" r=".9"/></svg></div>
+    </div>
+
+    <div class="room-card glass">
+      <span class="room-tag">CODESNAP</span>
+      <h2 class="room-title">Ubah kode<br>jadi gambar</h2>
+      <p class="room-desc">Tempel kodemu, hasilnya gambar yang rapi untuk dibagikan.</p>
+
+      <textarea class="field" data-input="codesnap" rows="6" spellcheck="false" placeholder="Tempel kode di sini"></textarea>
+      <button class="btn-cta" data-make="codesnap"><span class="shine"></span><span class="label">Buat Gambar</span><span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></svg></span></button>
+
+      <div class="loading" data-loading="codesnap"><span class="spinner"></span><span>Sedang memproses…</span></div>
+      <div class="error" data-error="codesnap"></div>
+
+      <div class="result" data-result="codesnap">
+          <img class="preview" alt="Hasil">
+          <div class="dl-row">
+            <button class="dl-btn" data-file="image"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Download</b><small>PNG · GAMBAR</small></span></button>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="page-qr">
+
+    <div class="topbar">
+      <div class="icon-btn" data-nav="home" role="button" aria-label="Kembali"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+      <div class="topbar-title">QR Code / QRIS</div>
+      <div class="icon-btn push-right" data-action="theme" role="button" aria-label="Ganti tema"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1.4 0 2-1 1.6-2.1-.4-1 .3-2.1 1.4-2.1H17a4 4 0 004-4c0-5-4-9.8-9-9.8z"/><circle cx="7.5" cy="11" r=".9"/><circle cx="10.5" cy="7.2" r=".9"/><circle cx="15" cy="7.6" r=".9"/></svg></div>
+    </div>
+
+    <div class="room-card glass">
+      <span class="room-tag">QR CODE</span>
+      <h2 class="room-title">Buat QR Code<br>&amp; QRIS</h2>
+      <p class="room-desc">Tempel teks atau data QRIS, download sebagai gambar.</p>
+
+      <input class="field" type="text" data-input="qr" placeholder="Ketik teks atau link">
+      <button class="btn-cta" data-make="qr"><span class="shine"></span><span class="label">Buat QR</span><span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></svg></span></button>
+
+      <div class="loading" data-loading="qr"><span class="spinner"></span><span>Sedang memproses…</span></div>
+      <div class="error" data-error="qr"></div>
+
+      <div class="result" data-result="qr">
+          <img class="preview" alt="Hasil">
+          <div class="dl-row">
+            <button class="dl-btn" data-file="image"><span class="dl-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg></span><span class="dl-text"><b>Download</b><small>PNG · GAMBAR</small></span></button>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <div id="themeSheet">
+    <div class="scrim"></div>
+    <div class="panel">
+      <div class="grab"></div>
+      <h3>Tema</h3>
+      <p>Pilih suasana dan efeknya</p>
+      <div class="theme-grid"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="js/setting.js"></script>
+  <script src="js/scrapr.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/myfunction.js"></script>
+  <script src="js/intro.js"></script>
+</body>
+</html>

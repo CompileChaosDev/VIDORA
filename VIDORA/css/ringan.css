@@ -1,0 +1,33 @@
+* {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.glass     { background: linear-gradient(160deg, rgba(40, 44, 80, .72), rgba(14, 16, 34, .84)); }
+.room-card { background: linear-gradient(160deg, rgba(40, 44, 80, .74), rgba(14, 16, 34, .86)); }
+.field     { background: rgba(8, 10, 24, .72); }
+.result    { background: rgba(8, 10, 24, .45); }
+.icon-btn  { background: rgba(30, 34, 66, .78); }
+.pill      { background: rgba(20, 22, 44, .75); }
+.home-badge { background: rgba(0, 0, 0, .55); }
+.slide-count, .slide-nav { background: rgba(0, 0, 0, .6); }
+.dropdown { background: rgba(18, 20, 42, .98); }
+#themeSheet .scrim { background: rgba(3, 4, 12, .7); }
+#themeSheet .panel { background: rgba(18, 20, 42, .98); }
+
+.page.active { animation: none; }
+
+.room-card::before { animation: none; --angle: 200deg; }
+
+.btn-cta {
+  animation: none;
+  background: linear-gradient(110deg, var(--a1), var(--a2));
+}
+.btn-cta .shine {
+  left: 0;
+  animation: shineMove 3.4s ease-in-out infinite;
+}
+@keyframes shineMove {
+  0%, 55% { transform: translateX(-130%) skewX(-20deg); }
+  100%    { transform: translateX(340%) skewX(-20deg); }
+}
